@@ -1,0 +1,73 @@
+<!-- container -->
+<div class="widget-group">
+  <div class='widget-container' 
+    style='width:{{wgtWidth}}; height:{{wgtHeight}}; font-size: {{fontSize}}'>
+  <div id='title'></div>
+
+  <svg height="{{W/2*unit0 - 0.5*unit0}}" width="{{W*unit0-0.2*unit0}}">
+    {{#sensors:i}}
+      <text x='{{1.4*unit0}}' y='{{0.8*unit0*i + 0.6*unit0}}' class='text'>{{label}} {{sub_label}}</text>
+      <!--<rect x='140' y='{{0.8*unit0*i + 8}}' width="{{Math.round( (value-17)/3*200 )}}" height="16" style="fill:rgba(0,225,0,0.9)" />-->
+      <text text-anchor="end" x='{{10.6*unit0}}' y='{{0.8*unit0*i + 0.6*unit0}}' class='text'>{{value}} {{unescape(unit)}}</text>
+    {{/sensors}}
+  </svg>
+
+  </div>
+</div>
+
+ <!-- container -->
+
+
+<style>
+    #title {
+        font-size: 40%;
+        height: 8%;
+    }
+    .text {
+        fill: white;
+        font-size: 46%;
+    }
+    #chart {
+        font-size: 60%;
+    }
+#bs {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+#bar {
+    display: inline;
+    background-color: green;
+}
+</style>
+
+
+<script>
+component.exports = {
+  data: {
+    sensors: [],
+    sensorlist: [],
+    W: 12,
+    unescape: function(str) {
+      return unescape(str);
+    }
+  },
+  init: function() {
+    var self = this;
+    this.observe('unit0', self.setVars);
+  },
+  setVars: function() {
+    this.set('wgtWidth', this.data.W * this.data.unit0 + 'px');
+    this.set('wgtHeight', 0.5 * this.data.W * this.data.unit0 + 'px');
+    this.set('fontSize', this.data.unit0 + 'px');
+  },
+  adapt: ['Backbone'],
+  setSensors: function(sensorGroup) {
+    var sensors = [];
+    _.each(this.data.sensorlist, function(sensorid) {
+      sensors.push( sensorGroup.get(sensorid) );
+    });
+    this.set('sensors', sensors);
+  }
+};
+</script>
+

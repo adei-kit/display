@@ -1,0 +1,481 @@
+[   
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 2,
+        "unit": "%u2103",
+        "digit": 4,
+        "label": "XHV CP",
+        "sub_label": "Jacket"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 3,
+        "unit": "%u2103",
+        "label": "HVac CP",
+        "sub_label": "Jacket"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 4,
+        "unit": "%u2103",
+        "digit": 3,
+        "label": "PTC",
+        "sub_label": "Cold Finger"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 5,
+        "unit": "%u2103",
+        "label": "Cooling Ring",
+        "sub_label": "Top"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 6,
+        "unit": "%u2103",
+        "label": "Cooling Ring",
+        "sub_label": "Bottom"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 7,
+        "unit": "%u2103",
+        "label": "PAE Bell",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 8,
+        "unit": "%u2103",
+        "label": "PAE Tube",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 9,
+        "unit": "%u2103",
+        "label": "Detector",
+        "sub_label": "Flange"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 74,
+        "unit": "mbar",
+        "scientific": true,
+        "digit": 1,
+        "label": "XHVac Ion Gauge",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 66,
+        "unit": "mbar",
+        "digit": 1,
+        "label": "XHVac Chamber CCG",
+        "scientific": true,
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 68,
+        "unit": "mbar",
+        "digit": 1,
+        "scientific": true,
+        "label": "XHVac Chamber CEP",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 99,
+        "unit": "K",
+        "label": "XHVac CP",
+        "sub_label": " Temperature"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": -1,
+        "unit": "mbar",
+        "scientific": true,
+        "digit": 1,
+        "label": "HVac Ion Gauge",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 67,
+        "unit": "mbar",
+        "digit": 1,
+        "scientific": true,
+        "label": "HVac Chamber CCG",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 69,
+        "unit": "mbar",
+        "digit": 1,
+        "label": "HVac Chamber CEP",
+        "scientific": true,
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 100,
+        "unit": "K",
+        "label": "HVac CP",
+        "sub_label": " Temperature"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 102,
+        "unit": "A",
+        "label": "Pinch Magnet Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 106,
+        "unit": "K",
+        "label": "Pinch Magnet T1",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 107,
+        "unit": "K",
+        "label": "Pinch Magnet T2",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 108,
+        "unit": "%",
+        "label": "Pinch Magnet He Level",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 149,
+        "unit": "psig",
+        "label": "Pinch HRC Pressure",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 150,
+        "unit": "W",
+        "label": "Pinch HRC Power",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 103,
+        "unit": "A",
+        "label": "Detector Magnet Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 109,
+        "unit": "K",
+        "label": "Detector Magnet T1",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 110,
+        "unit": "K",
+        "label": "Detector Magnet T2",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 111,
+        "unit": "%",
+        "label": "Detector Magnet He Level",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 151,
+        "unit": "psig",
+        "label": "Detector HRC Pressure",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 152,
+        "unit": "W",
+        "label": "Detector HRC Power",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 59,
+        "unit": "V",
+        "label": "ES1 Status",
+        "sub_label": "GS In"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 61,
+        "unit": "V",
+        "label": "ES3 Status",
+        "sub_label": "ES In"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 75,
+        "unit": "V",
+        "label": "ES Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 78,
+        "unit": "V",
+        "label": "ES Enabled",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 80,
+        "unit": "V",
+        "label": "PAE Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 82,
+        "unit": "V",
+        "label": "PAE Enabled",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 145,
+        "unit": "V",
+        "label": "HV Ramping",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 112,
+        "unit": "V",
+        "label": "FET Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 113,
+        "unit": "V",
+        "label": "-8V Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 116,
+        "unit": "V",
+        "label": "+6V Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 117,
+        "unit": "V",
+        "label": "-6V Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 118,
+        "unit": "V",
+        "label": "Detector Bias Voltage",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 146,
+        "unit": "V",
+        "label": "LV Ramping",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 119,
+        "unit": "mA",
+        "label": "FET Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 120,
+        "unit": "mA",
+        "label": "-8V Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 123,
+        "unit": "mA",
+        "label": "+6V Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 124,
+        "unit": "mA",
+        "label": "-6V Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 125,
+        "unit": "mA",
+        "label": "Detector Bias Current",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 186,
+        "unit": "V",
+        "label": "+6V",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 187,
+        "unit": "V",
+        "label": "-6V",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 188,
+        "unit": "V",
+        "label": "Bias",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 190,
+        "unit": "mA",
+        "label": "+6V",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 191,
+        "unit": "mA",
+        "label": "-6V",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 192,
+        "unit": "mA",
+        "label": "Bias",
+        "sub_label": ""
+    },
+
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 180,
+        "unit": "%u2103",
+        "label": "Peltier Temp. 1",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 181,
+        "unit": "%u2103",
+        "label": "Peltier Temp. 1 Set",
+        "sub_label": "Point"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 182,
+        "unit": "%",
+        "label": "Peltier Ctrl. Power",
+        "sub_label": "Output 1"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 183,
+        "unit": "%u2103",
+        "label": "Peltier Temp. 2",
+        "sub_label": ""
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 184,
+        "unit": "%u2103",
+        "label": "Peltier Temp. 2 Set",
+        "sub_label": "Point"
+    },
+    {
+        "server": "katrin",
+        "group": 0,
+        "sensor": 185,
+        "unit": "%",
+        "label": "Peltier Ctrl. Power",
+        "sub_label": "Output 2"
+    }
+]

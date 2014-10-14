@@ -1,0 +1,7 @@
+{
+    "katrin": {
+        "host": "http://katrin.kit.edu/adei",
+        "server": "fpd",
+        "database": "katrin_rep"
+    }
+}

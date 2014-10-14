@@ -1,0 +1,98 @@
+<div class="widget-group">
+<ul style='width:{{W*unit0}}px; font-size: {{unit0}}px'>
+  {{#sensors:i}}
+  <li class='widget-container' id='widget_{{i}}' data-sid={{sensorlist[i]}}
+      style='width: {{6*unit0}}px; height: {{3*unit0}}px'
+      draggable="true">
+    <div id='data'>
+        <span id='value'>{{ value }}</span>
+        <span id='unit'>{{ unescape(unit) }} </span>
+    </div>
+    <div id='label'> 
+        {{ label }}
+        <span id='sub_label'>{{ sub_label }}</span>
+    </div>
+  </li>
+  {{/sensors}}
+</ul>
+<div style='height: 20px'></div>
+</div>
+
+<style>
+    ul {
+        font-family: Carlito;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        position: relative;
+        float: left;
+    }
+    #data {
+        position: absolute;
+        color: white;
+        text-align: center;
+        width: 100%;
+        top: 35%;
+    }
+    #data #value {
+        font-size: 80%;
+    }
+    #data #unit {
+        font-size: 50%;
+    }
+    #label {
+        position: absolute;
+        font-size: 36%;
+        top: 2%;
+        left: 2%;
+        color: #a8c2b8;
+    }
+</style>
+    
+
+<script>
+component.exports = {
+  data: {
+    unescape: function(str) { return unescape(str); },
+    W: 12
+  },
+  beforeInit: function() {
+    slist = this.findAll("li", {live: true});
+  },
+  init: function() {
+    console.log(slist);
+    var self = this;
+    this.observe('sensors.*.label', function(val, oldval, keypath) {
+        //console.log(keypath + ":" + oldval + "-->" + val);
+        this.draghandler();
+      }, {
+        defer: true
+    });
+  },
+  adapt: ['Backbone'],
+  draghandler: function () {
+    _.each(
+      this.findAll(".widget-container"),
+    function(el) {
+      var sid = $(el).data('sid');
+      $(el).on("dragstart", function(evt) {
+        evt.originalEvent.dataTransfer.setData('sid', sid);
+        console.log(evt.originalEvent.dataTransfer.getData('sid'));
+      });
+    });
+  },
+  setSensors: function(sensorGroup) {
+    var sensors = [];
+    _.each(this.data.sensorlist, function(sensorid) {
+      sensors.push( sensorGroup.get(sensorid) );
+    });
+    this.set('sensors', sensors);
+  },
+  test: function() {
+    //console.log(this.data.sensors.0.label);
+  }
+};
+</script>
+

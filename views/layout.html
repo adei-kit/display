@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{=T.accepted_language or 'en'}}">
+    <head>
+        <title>{{=response.title or request.application}}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script>
+            var require = {
+                baseUrl: "{{=URL('static', 'js')}}"
+            }
+        </script>
+        <script data-main="{{=URL(request.application, 'static/js', request.controller+'.js')}}" src="{{=URL('static', 'js/lib/require/require.min.js')}}"></script>
+            <!--data-main="{{=URL(request.application,'static/js',request.controller+'/'+request.function)}}"-->
+
+        <!-- include requires CSS files -->
+        {{response.files.append(URL(request.application,'static/css',request.controller+'.css'))}}
+
+        <!-- include web2py_ajax -->
+        {{include 'web2py_ajax.html'}}
+    </head>
+    <body>
+        {{include}}
+    </body>
+</html>
