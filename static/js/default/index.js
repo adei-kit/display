@@ -5,6 +5,7 @@
         SensorView = require('rvc!./component/SensorComponent'),
         SensorView2 = require('rvc!./component/SensorComponent_2'),
         TrendView = require('rvc!./component/trend'),
+        AlarmView = require('rvc!./component/alarm'),
         SensorCollection = require('./model/SensorModel');
         s0 = require('json!config/sensor.json');    // sensor configuration
     
@@ -48,54 +49,47 @@
 
     $('#content').canvas({cols: cols});
     var col_width = $('#content').data('colwidth');
-    var unit0 = Math.round(col_width/12);
+    var unit0 = Math.floor(col_width/12);
 
 
     /********* create widghet views *********/
     /********* create widghet views *********/
     /********* create widghet views *********/
     
-    sensorview0 = new SensorView2({ el: "#canvas-div-0", append: true });
-    var sensorview1 = new SensorView({ el: "#canvas-div-0", append: true});
-    var sensorview2 = new SensorView({ el: "#canvas-div-0", append: true});
-    var sensorview3 = new SensorView({ el: "#canvas-div-1", append: true});
-    var sensorview4 = new SensorView({ el: "#canvas-div-1", append: true});
-    var sensorview5 = new SensorView({ el: "#canvas-div-1", append: true});
+    var sensorview1 = new SensorView({ el: "#canvas-col-0", append: true});
+    var sensorview2 = new SensorView({ el: "#canvas-col-0", append: true});
+    var sensorview3 = new SensorView({ el: "#canvas-col-1", append: true});
+    var sensorview4 = new SensorView({ el: "#canvas-col-1", append: true});
+    var sensorview5 = new SensorView({ el: "#canvas-col-1", append: true});
+    var sensorview0 = new SensorView2({ el: "#canvas-col-2", append: true });
+    var alarmview   = new AlarmView({el: "#canvas-col-2", append: true});
+    var trendview1  = new TrendView({ el: "#canvas-col-2", append: true });
+    var trendview2  = new TrendView({ el: "#canvas-col-2", append: true });
 
-    sensorviews = {
+    views = {
         sensorview0: [0,  1,  2,  3,  4,  5],
         sensorview1: [8, 10,  8, 10,  8, 10,  9, 14],
         sensorview2: [8, 10,  8, 10,  8, 10,  9, 14],
         sensorview3: [8, 10,  9, 14],
         sensorview4: [8, 10,  8, 10,  8, 10,  9, 14],
         sensorview5: [8, 10,  8, 10,  8, 10,  9, 14],
-    }
+        trendview1:  [0, 2, 3, 4],
+        trendview2:  [5, 6, 7, 8],
+        alarmview: [0,2]
+    };
 
-    _.each(sensorviews, function(v, k) {
+    _.each(views, function(v, k) {
         var k = eval(k);
+        console.log(v);
         k.set('unit0', unit0);
         k.set('sensorlist', v);
         k.setSensors(sensorGroup);
-    })
-
-    //  list0 = sensorview1.findAll('li', {live: true});
-
-    trendview1 = new TrendView({ el: "#canvas-div-2", append: true });
-    trendview1.set('unit0', unit0);
-    trendview1.set('sensorlist', [0, 2, 3, 4]);
-    trendview1.set('sensors', 
-            [sensorGroup.get(0), sensorGroup.get(2), 
-             sensorGroup.get(3), sensorGroup.get(4)] );
-    trendview1.initchart();
-
-
-    trend2 = $('<div class="widget-group"></div>').appendTo('#canvas-div-2');
-    trendview2 = new TrendView({
-        el: trend2,
-        data: {
-            unit0: unit0,
-        }
     });
+
+
+    trendview1.initchart();
+    trendview2.initchart();
+
 
     /********* post processing *********/
     /********* post processing *********/

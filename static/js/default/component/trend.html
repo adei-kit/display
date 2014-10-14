@@ -164,6 +164,13 @@
         var t = sensor.get('tss');
         $c.highcharts().series[i].setData(_.zip(t, v));
       },
+      setSensors: function(sensorGroup) {
+        var sensors = [];
+        _.each(this.data.sensorlist, function(sensorid) {
+          sensors.push( sensorGroup.get(sensorid) );
+        });
+        this.set('sensors', sensors);
+      }
     };
 
 </script>
