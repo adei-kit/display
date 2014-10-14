@@ -5,7 +5,7 @@
             cols: 6,
             layout: '1',
             margin_top:  20,
-            col_space: 10
+            col_space: 12 
         },
 
         _create: function() {
@@ -53,14 +53,19 @@
     var layout_one = function(widget) {
         console.log('layout_one::');
         //widget.element.empty();
+        //
 
         var cols = widget.options[ 'cols' ],
             col_space = widget.options[ 'col_space' ],
             margin_top = widget.options[ 'margin_top' ];
+
+        var col_margin = 0.5 * col_space;
         
         var window_width = $(window).width(),
-            extra_space = col_space * (cols - 1),
+            extra_space = col_space * (cols - 1) + 10,
             unitX = Math.floor(( window_width * 0.98 - extra_space ) / cols);
+        var unit0 = Math.floor(unitX/12);
+        unitX = unit0*12;
 
         console.log(unitX);
 
@@ -78,14 +83,21 @@
                     .appendTo(widget.element);
 
         for (var i = 0; i < cols-1; i ++) {
-            var id = "canvas-div-" + i;
-            widget.container.append("<div id='"+ id + "'></div>");
+            var id = "canvas-col-" + i;
+            var el = $("<div id='"+ id + "'></div>");
+            widget.container.append(el);
+            if (i === cols-2) {
+                el.css('width', 2*unitX);
+            } else {
+                el.css('width', unitX);
+            }
         }
         widget.container.children()
+            //.css('width', unitX)
             .css('float', 'left')
             .css('background-color', '#1f1f1f')
-            .css('margin-left', 5 + 'px')
-            .css('margin-right', 5 + 'px');
+            .css('margin-left', col_margin)
+            .css('margin-right', col_margin);
         console.log(widget.container);
         return unitX;
     };

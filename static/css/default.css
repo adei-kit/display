@@ -60,6 +60,7 @@ body {
 }
 
 .widget-container {
+    float: left;
     border: #1f1f1f solid 2px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -71,6 +72,8 @@ body {
 .widget-group {
     overflow: hidden;
     margin: 10px 0;
+    display: inline-block;
+    vertical-align: top;
     //margin-bottom: 20px;
 }
 
