@@ -1,0 +1,89 @@
+<!-- container -->
+<div class="widget-group">
+  <div class='widget-container' style='width:{{wgtWidth}}; font-size: {{fontSize}}'>
+
+    <div id='title'>Alarm </div>
+    <div id="date" align="center"></div>
+
+  </div>
+</div>
+
+ <!-- container -->
+
+
+<style>
+    #title {
+        font-size: 40%;
+        font-weight: bold;
+        height: 8%;
+        background: #3F3F3F;
+        padding: 4px;
+    }
+    #date {
+      font-size: 100%;
+      margin: 15px 0;
+    }
+    .text {
+        fill: white;
+        font-size: 46%;
+    }
+    #chart {
+        font-size: 60%;
+    }
+#bs {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+#bar {
+    display: inline;
+    background-color: green;
+}
+</style>
+
+
+<script>
+component.exports = {
+  data: {
+    sensors: [],
+    sensorlist: [],
+    W: 12,
+    unescape: function(str) {
+      return unescape(str);
+    }
+  },
+  init: function() {
+    var self = this;
+    this.observe('unit0', self.setVars);
+    setInterval( function() {
+        var date = new Date();
+        var hr = date.getUTCHours();
+        var min = date.getUTCMinutes();
+        var sec = date.getUTCSeconds();
+        if (min < 10) {
+          min = "0" + min;
+        }
+        if (sec < 10) {
+          sec = "0" + sec;
+        }
+        $(self.find("#date") ).html(
+              hr + ":" + min + ":" + sec + 
+              "<span style='font-size: 70%'> GMT </span> <br/>" +
+              "<span style='font-size: 40%'>Last update: 3 minutes ago </span>");
+        }, 1000 );
+  },
+  setVars: function() {
+    this.set('wgtWidth', this.data.W * this.data.unit0 + 'px');
+    this.set('wgtHeight', 0.5 * this.data.W * this.data.unit0 + 'px');
+    this.set('fontSize', this.data.unit0 + 'px');
+  },
+  adapt: ['Backbone'],
+  setSensors: function(sensorGroup) {
+    var sensors = [];
+    _.each(this.data.sensorlist, function(sensorid) {
+      sensors.push( sensorGroup.get(sensorid) );
+    });
+    this.set('sensors', sensors);
+  }
+};
+</script>
+
