@@ -1,9 +1,13 @@
 {
-  "aliasify": {
-    "aliases": {
-      "ractive": "ractive/build/ractive.runtime"    
-    }
-  }, 
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "browser": {
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "ractive": "global:Ractive"
+  },
   "devDependencies": {
     "aliasify": "^1.4.0",
     "browser-sync": "~0.8.2",
@@ -20,11 +24,11 @@
     "pretty-hrtime": "~0.2.1",
     "ractivate": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
-    "watchify": "~0.10.1"
+    "watchify": "~0.10.1",
+    "ractive": "^0.5.8"
   },
   "dependencies": {
     "jquery": "~2.1.0",
-    "ractive": "^0.5.8",
     "bootstrap": "~3.2.0"
   }
 }

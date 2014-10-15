@@ -4,5 +4,6 @@
  *});
  */
 
-require('gulp');
+//require('./default/index');
+require('./default/app');
 //require('../../ractive');
