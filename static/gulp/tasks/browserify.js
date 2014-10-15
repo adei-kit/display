@@ -7,6 +7,7 @@
 */
 
 var browserify   = require('browserify');
+var ractify      = require('ractify');
 var watchify     = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
@@ -26,6 +27,8 @@ gulp.task('browserify', function() {
         // Add file extentions to make optional in your requires
         extensions: ['.js']
     });
+
+    bundler.transform(ractify);
 
     var bundle = function() {
         // Log when bundling starts

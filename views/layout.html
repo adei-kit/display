@@ -8,7 +8,6 @@
                 baseUrl: "{{=URL('static', 'js')}}"
             }
         </script>
-        <script data-main="{{=URL(request.application, 'static/js', request.controller+'.js')}}" src="{{=URL('static', 'js/lib/require/require.min.js')}}"></script>
             <!--data-main="{{=URL(request.application,'static/js',request.controller+'/'+request.function)}}"-->
 
         <!-- include requires CSS files -->
@@ -19,5 +18,6 @@
     </head>
     <body>
         {{include}}
+        <script type='text/javascript' src='katrin/static/build/bundle.js'></script>
     </body>
 </html>

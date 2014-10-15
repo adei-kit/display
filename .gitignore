@@ -1,2 +1,4 @@
 errors/
 node_modules/
+build/
+*.swp
