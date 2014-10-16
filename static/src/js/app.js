@@ -4,9 +4,9 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 var Ractive = require('ractive');
 
-Backbone.$ = $;
 require('ractive-adaptors-backbone');
 require('./controller/canvas.js');
+Backbone.$ = $;
 
 var AlarmView = Ractive.extend(require("./view/alarm.html"));
 var SensorView = Ractive.extend(require("./view/sensor.html"));
@@ -48,6 +48,7 @@ var sensorview1 = new SensorView({ el: col, append: true});
 
 // cols 2
 var col = "#canvas-col-2";
+var trendview1 = new TrendView({ el: col, append: true});
 
 views = {
 //    sensorview0: [0,  1,  2,  3,  4,  5],
@@ -56,7 +57,7 @@ views = {
 //    sensorview3: [8, 10,  9, 14],
 //    sensorview4: [8, 10,  8, 10,  8, 10,  9, 14],
 //    sensorview5: [8, 10,  8, 10,  8, 10,  9, 14],
-//    trendview1:  [0, 2, 3, 4],
+    trendview1:  [0, 3, 4],
 //    trendview2:  [5, 6, 7, 8],
     alarmview: [0,2]
 };
@@ -69,4 +70,4 @@ _.each(views, function(v, k) {
     k.setSensors(sensorGroup);
 });
 
-
+trendview1.initchart();

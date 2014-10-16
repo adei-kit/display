@@ -80,6 +80,7 @@ component.exports = {
       var sid = $(el).data('sid');
       $(el).on("dragstart", function(evt) {
         evt.originalEvent.dataTransfer.setData('sid', sid);
+        evt.originalEvent.dataTransfer.setData('gid', 0);
         console.log(evt.originalEvent.dataTransfer.getData('sid'));
       });
     });
