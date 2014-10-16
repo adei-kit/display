@@ -10,9 +10,9 @@
    -<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
    -<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
    -->
-    <script src="{{=URL(request.application,'static', 'vendor/ractive.min.js')}}"></script>
     <script src="{{=URL(request.application,'static', 'vendor/jquery.min.js')}}"></script>
     <script src="{{=URL(request.application,'static', 'vendor/jquery-ui.min.js')}}"></script>
+    <script src="{{=URL(request.application,'static', 'vendor/highcharts.js')}}"></script>
 
     {{ response.include_meta()
        response.include_files() }}
