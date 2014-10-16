@@ -5,8 +5,7 @@
   "browser": {
   },
   "browserify-shim": {
-    "jquery": "global:jQuery",
-    "ractive": "global:Ractive"
+    "jquery": "global:jQuery"
   },
   "devDependencies": {
     "aliasify": "^1.4.0",
@@ -22,10 +21,12 @@
     "gulp-open": "~0.2.8",
     "gulp-util": "~2.2.14",
     "pretty-hrtime": "~0.2.1",
-    "ractivate": "^0.1.0",
     "vinyl-source-stream": "~0.1.1",
     "watchify": "~0.10.1",
     "ractive": "^0.5.8",
+    "ractify": "~0.5.0",
+    "backbone": "~1.1.2",
+    "ractive-adaptors-backbone": "0.2.0",
     "underscore": "~1.7.0"
   },
   "dependencies": {

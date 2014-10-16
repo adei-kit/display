@@ -22,7 +22,7 @@ gulp.task('browserify', function() {
     var bundler = bundleMethod({
         // Specify the entry point of your app
         //entries: ['../static/js/default/index.js'],
-        entries: ['./javascript/default.js'],
+        entries: ['./src/js/app.js'],
         //entries: ['../static/js/default.js', '../static/js/default/index.js'],
         // Add file extentions to make optional in your requires
         extensions: ['.js']
