@@ -53,6 +53,7 @@
     
 
 <script>
+var _ = require('underscore');
 component.exports = {
   data: {
     unescape: function(str) { return unescape(str); },

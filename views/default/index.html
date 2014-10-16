@@ -1,11 +1,14 @@
 
 {{extend 'layout.html'}}
 
-  <div id='wrapper'>
+<div id='wrapper'>
 
-    <div id='banner'></div>
-    <div id="content"></div>
-    <div id="footer"></div>
+  <div id='banner'></div>
+  <div id="content"></div>
+  <div id="footer"></div>
 
-  </div>
-  <script type='text/javascript' src='katrin/static/build/bundle.js'></script>
+</div>
+
+<link rel='stylesheet' href="{{=URL('static', 'build/css/index.css')}}" />
+<script type='text/javascript' src='katrin/static/build/bundle.js'></script>
+
