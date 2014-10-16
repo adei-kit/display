@@ -5,7 +5,8 @@
   "browser": {
   },
   "browserify-shim": {
-    "jquery": "global:jQuery"
+    "jquery": "global:jQuery",
+    "highcharts": "global:Highcharts"
   },
   "devDependencies": {
     "aliasify": "^1.4.0",
@@ -19,6 +20,7 @@
     "gulp-imagemin": "~0.1.5",
     "gulp-notify": "~1.2.4",
     "gulp-open": "~0.2.8",
+    "gulp-uglify": "~1.0.1",
     "gulp-util": "~2.2.14",
     "pretty-hrtime": "~0.2.1",
     "vinyl-source-stream": "~0.1.1",
@@ -27,7 +29,9 @@
     "ractify": "~0.5.0",
     "backbone": "~1.1.2",
     "ractive-adaptors-backbone": "0.2.0",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "minifyify": "~4.4.0",
+    "highcharts-browserify": "~0.1.1"
   },
   "dependencies": {
     "jquery": "~2.1.0",

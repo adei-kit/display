@@ -8,8 +8,9 @@ Backbone.$ = $;
 require('ractive-adaptors-backbone');
 require('./controller/canvas.js');
 
-var AlarmView = Ractive.extend(require("./view/alarm.ract"));
-var SensorView = Ractive.extend(require("./view/sensor.ract"));
+var AlarmView = Ractive.extend(require("./view/alarm.html"));
+var SensorView = Ractive.extend(require("./view/sensor.html"));
+var TrendView = Ractive.extend(require("./view/trend.html"));
 
 
 // settings

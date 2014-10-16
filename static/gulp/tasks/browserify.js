@@ -13,6 +13,7 @@ var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
+var minifyify    = require('minifyify');
 
 
 gulp.task('browserify', function() {
@@ -28,7 +29,8 @@ gulp.task('browserify', function() {
         extensions: ['.js']
     });
 
-    bundler.transform(ractify);
+    bundler.transform({ extension: 'html' }, ractify);
+    //bundler.plugin('minifyify', {map: 'bundle.map.json'});
 
     var bundle = function() {
         // Log when bundling starts
