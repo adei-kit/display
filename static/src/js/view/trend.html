@@ -4,21 +4,23 @@
     font-size: {{Math.round(0.5*unit0)}}px"> 
 
     <!-- menu bar -->
-    <div id='trend-titlebar' 
-      style="width: {{0.98*W*unit0}}px height: {{Math.round( 2.0*unit0 )}}px">
+    <div id='trend-titlebar' style="width: 99%; height: 5%">
       <div style="float: left">
         <ul class='h-buttons' id='legend'></ul>
       </div>
       <div style="float: right">
         <!--<div style="width: {{0.7*unit0}}px; height:{{0.7*unit0}}px; 
           background: url('display4/static/images/clock.jpg'); background-size: cover"> </div>-->
-        <div style="width: {{Math.round(0.8*unit0)}}px; height:{{Math.round(0.8*unit0)}}px; 
-          background: url('display4/static/images/adei-mono.gif'); background-size: cover"></div>
+        <!--
+           -<div style="width: {{Math.round(0.8*unit0)}}px; height:{{Math.round(0.8*unit0)}}px; 
+           -  background: url('display4/static/images/adei-mono.gif'); background-size: cover"></div>
+           -->
       </div>
     </div>
     
     <!-- chart -->
-    <div id='highchart-div'  style="width: {{0.98*W*unit0}}px; height: {{12.1*unit0}}px"> </div>
+    <!--<div id='highchart-div'  style="width: {{0.98*W*unit0}}px; height: {{1.8*unit0}}px"> </div>-->
+    <div id='highchart-div'  style="width: 99%; height: 90%"> </div>
 </div>
 </div>
 
@@ -43,6 +45,7 @@
         margin: 0px;
         margin-right: 6px;
         padding: 0 8px;
+        font-size: 110%;
     }
 </style>
 
@@ -102,6 +105,7 @@
 
         // initial highcharts
         $c.highcharts({});
+        this.set('chart_id', $($c[0].outerHTML).data('highcharts-chart'));
 
         // initial series for each sensor
         _.each(sensors, function(sensor) { 
@@ -122,7 +126,7 @@
           evt.preventDefault() 
         }).on('drop', function( evt ) {
           var sid = evt.originalEvent.dataTransfer.getData('sid');
-          self.addSensor(sensorGroup, sid);
+          self.addSensor(sid);
         });
       },
       // chart functions
@@ -132,9 +136,9 @@
         this.splice('sensorlist', i, 1);
         this.splice('sensors', i, 1);
       },
-      addSensor: function(sensorGroup, sid) {
+      addSensor: function(sid) {
         var sid = parseInt(sid);
-        var sensor = sensorGroup.get(sid);
+        var sensor = this.data.sensorGroup.get(sid);
         this.initSerie(sensor);
         this.push('sensors', sensor);
         this.push('sensorlist', sid);
@@ -143,7 +147,8 @@
          var n = sensor.get('label');
          var u = sensor.get('unit');
          var v = sensor.get('unit_name');
-         var chart = $(this.find('#highchart-div')).highcharts();
+         //var chart = $(this.find('#highchart-div')).highcharts();
+         var chart = Highcharts.charts[this.data.chart_id];
 
          var yaxisId = v + "_" + u;
          console.log(chart.yAxis[0]);
@@ -162,12 +167,14 @@
         var sensor = this.data.sensors[i];
         var v = sensor.get('values');
         var t = sensor.get('tss');
-        $c.highcharts().series[i].setData(_.zip(t, v));
+        var chart = Highcharts.charts[this.data.chart_id];
+        chart.series[i].setData(_.zip(t, v));
       },
-      setSensors: function(sensorGroup) {
+      setSensors: function() {
         var sensors = [];
+        var self = this;
         _.each(this.data.sensorlist, function(sensorid) {
-          sensors.push( sensorGroup.get(sensorid) );
+          sensors.push( self.data.sensorGroup.get(sensorid) );
         });
         this.set('sensors', sensors);
       }

@@ -85,10 +85,11 @@ component.exports = {
       });
     });
   },
-  setSensors: function(sensorGroup) {
+  setSensors: function() {
     var sensors = [];
+    var self = this;
     _.each(this.data.sensorlist, function(sensorid) {
-      sensors.push( sensorGroup.get(sensorid) );
+      sensors.push( self.data.sensorGroup.get(sensorid) );
     });
     this.set('sensors', sensors);
   },

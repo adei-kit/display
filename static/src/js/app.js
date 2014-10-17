@@ -41,14 +41,19 @@ var unit0 = Math.floor(col_width/12);
 // cols 0
 var col = "#canvas-col-0";
 var alarmview   = new AlarmView({el: col, append: true});
+var sensorview1 = new SensorView({ el: col, append: true});
 
 // cols 1
 var col = "#canvas-col-1";
-var sensorview1 = new SensorView({ el: col, append: true});
 
 // cols 2
 var col = "#canvas-col-2";
 var trendview1 = new TrendView({ el: col, append: true});
+var trendview2 = new TrendView({ el: col, append: true});
+
+trendview1.set('W', 36);
+trendview2.set('W', 36);
+
 
 views = {
 //    sensorview0: [0,  1,  2,  3,  4,  5],
@@ -58,8 +63,8 @@ views = {
 //    sensorview4: [8, 10,  8, 10,  8, 10,  9, 14],
 //    sensorview5: [8, 10,  8, 10,  8, 10,  9, 14],
     trendview1:  [0, 3, 4],
-//    trendview2:  [5, 6, 7, 8],
-    alarmview: [0,2]
+    trendview2:  [5, 6, 7, 8],
+    alarmview: [0, 2]
 };
 
 _.each(views, function(v, k) {
@@ -67,7 +72,9 @@ _.each(views, function(v, k) {
     console.log(v);
     k.set('unit0', unit0);
     k.set('sensorlist', v);
-    k.setSensors(sensorGroup);
+    k.set('sensorGroup', sensorGroup);
+    k.setSensors();
 });
 
 trendview1.initchart();
+trendview2.initchart();
