@@ -61,7 +61,7 @@ body {
 
 .widget-container {
     float: left;
-    border: #1f1f1f solid 2px;
+    border: #3f3f3f solid 1px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     color: white;
@@ -71,9 +71,11 @@ body {
 
 .widget-group {
     overflow: hidden;
-    margin: 10px 0;
+    margin: 6px 0;
     display: inline-block;
     vertical-align: top;
+    font-family: Carlito;
+    color: white;
     //margin-bottom: 20px;
 }
 

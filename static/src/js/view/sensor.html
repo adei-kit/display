@@ -1,5 +1,6 @@
-<div class="widget-group">
-<ul style='width:{{W*unit0}}px; font-size: {{unit0}}px'>
+<div class="widget-group" style="font-size: {{unit0}}px">
+<div id='title'>Alarm </div>
+<ul style='width:{{W*unit0}}px;'>
   {{#sensors:i}}
   <li class='widget-container' id='widget_{{i}}' data-sid={{sensorlist[i]}}
       style='width: {{6*unit0}}px; height: {{3*unit0}}px'
@@ -20,7 +21,6 @@
 
 <style>
     ul {
-        font-family: Carlito;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -28,6 +28,14 @@
     li {
         position: relative;
         float: left;
+    }
+    #title {
+        font-size: 50%;
+        font-weight: bold;
+        height: 8%;
+        background: #3F3F3F;
+        padding-left: 6px;
+        padding-top: 4px;
     }
     #data {
         position: absolute;
