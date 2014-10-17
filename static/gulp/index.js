@@ -9,4 +9,9 @@ tasks.forEach(function(task) {
 gulp = require('gulp');
 Ractive = require('ractive');
 
-gulp.task('default', ['copy', 'browserify']);
+gulp.task('default', ['watch']);
+
+gulp.task('watch', function() {
+    gulp.watch('src/css/**', ['copy']);
+    gulp.watch('src/js/**', ['browserify']);
+});
