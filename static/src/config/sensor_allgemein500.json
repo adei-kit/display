@@ -1,0 +1,143 @@
+[
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 0,
+        "unit": "V",
+        "digit": 4,
+        "label": "u_dcbus_target"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 2,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_dcbus_dcdc1_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 3,
+        "unit": "V",
+        "digit": 4,
+        "label": "u_dcbus_dcdc1_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 4,
+        "unit": "kw",
+        "digit": 4,
+        "label": "p_dcbus_dcdc1_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 5,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_dcbus_dcdc2_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 6,
+        "unit": "V",
+        "digit": 4,
+        "label": "u_dcbus_dcdc2_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 7,
+        "unit": "kw",
+        "digit": 4,
+        "label": "p_dcbus_dcdc2_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 8,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_dcbus_pv_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 9,
+        "unit": "V",
+        "digit": 4,
+        "label": "u_dcbus_pv_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 10,
+        "unit": "kw",
+        "digit": 4,
+        "label": "p_dcbus_pv_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 17,
+        "unit": "kwh",
+        "digit": 4,
+        "label": "e_pv_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 18,
+        "unit": "kwh",
+        "digit": 4,
+        "label": "e_to_batt_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 19,
+        "unit": "kwh",
+        "digit": 4,
+        "label": "e_from_batt_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 20,
+        "unit": "kwh",
+        "digit": 4,
+        "label": "e_into_grid_act"
+},
+
+{
+        "server": "bess",
+        "group": "allgemein_500",
+        "sensor": 21,
+        "unit": "kwh",
+        "digit": 4,
+        "label": "e_from_grid_act"
+}
+
+]

@@ -1,0 +1,12 @@
+{
+    "katrin": {
+        "host": "http://katrin.kit.edu/adei",
+        "server": "fpd",
+        "database": "katrin_rep"
+    },
+    "bess": {
+        "host": "http://ipebessadei.ipe.kit.edu/adei",
+        "server": "battery",
+        "database": "Bess50"
+    }
+}

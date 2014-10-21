@@ -6,7 +6,7 @@ from gluon.custom_import import track_changes; track_changes(True)
 from adeireader.adeireader import ADEIReader
 import collections
 
-f_server = open(os.path.join(request.folder, 'static/config/server.json'))
+f_server = open(os.path.join(request.folder, 'static/src/config/server.json'))
 config_server = json.load(f_server)
 f_server.close()
 pprint(config_server)
@@ -50,7 +50,7 @@ def api():
             if ( window / resample > 30 ):
                 resample = window/30 + 1
             try:
-                f_sensor = open(os.path.join(request.folder, 'static/config/' + args[0] + '.json'))
+                f_sensor = open(os.path.join(request.folder, 'static/src/config/' + args[0] + '.json'))
                 sensors = json.load(f_sensor)
                 f_sensor.close()
             except IOError:

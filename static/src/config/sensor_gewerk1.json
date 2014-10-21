@@ -1,0 +1,21 @@
+[
+
+{
+        "server": "bess",
+        "group": "Gewerk1_500",
+        "sensor": 11,
+        "unit": "V",
+        "digit": 4,
+        "label": "u_batt_act"
+},
+
+{
+        "server": "bess",
+        "group": "Gewerk1_500",
+        "sensor": 12,
+        "unit": "%",
+        "digit": 4,
+        "label": "soc_batt_act"
+}
+
+]

@@ -19,7 +19,7 @@ var cols = 4;
 
 
 // sensor configuration
-var sensorConfig = require('../../config/sensor.json');    
+var sensorConfig = require('../config/sensor.json');    
 var SensorCollection = require('./model/SensorCollection');
 var sensorGroup = new SensorCollection(sensorConfig);
 

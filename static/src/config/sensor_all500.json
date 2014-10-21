@@ -1,0 +1,50 @@
+[
+{
+        "server": "bess",
+        "group": "ALM_500",
+        "sensor": 2,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_dcbus_dcac_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "ALM_500",
+        "sensor": 16,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_ac_l1_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "ALM_500",
+        "sensor": 17,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_ac_l2_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "ALM_500",
+        "sensor": 18,
+        "unit": "A",
+        "digit": 4,
+        "label": "i_ac_l3_act"
+    
+},
+
+{
+        "server": "bess",
+        "group": "ALM_500",
+        "sensor": 6,
+        "unit": "kW",
+        "digit": 4,
+        "label": "p_ac_dcac_act"
+}
+]

@@ -1,0 +1,217 @@
+<!-- container -->
+<div class="widget-group">
+  <div class='widget-container' 
+    style='width:{{wgtWidth}}; height:{{wgtHeight}}; font-size: {{fontSize}}'>
+
+  <!--<svg height="{{W/2*unit0 - 0.5*unit0}}" width="{{W*unit0-0.2*unit0}}">-->
+  <svg height="100%" width="100%">
+
+    <!-- -->
+    <text x = "320" y="150" text-anchor="middle" class="text">
+      {{sensors.9.value}} {{sensors.9.unit}}
+    </text>
+    <text x = "320" y="170" text-anchor="middle" class="text">
+      {{sensors.7.value}} {{sensors.7.unit}}
+    </text>
+    <text x = "560" y="160" text-anchor="middle" class="text">
+      {{sensors.0.value}} {{sensors.0.unit}}
+    </text>
+
+    <text x = "740" y="160" text-anchor="middle" class="text">
+      {{grid.0.value}} {{grid.0.unit}}
+    </text>
+    <text x = "820" y="120" text-anchor="middle" class="text">
+      {{grid.1.value}} {{grid.1.unit}}
+    </text>
+    <text x = "820" y="140" text-anchor="middle" class="text">
+      {{grid.2.value}} {{grid.2.unit}}
+    </text>
+    <text x = "820" y="160" text-anchor="middle" class="text">
+      {{grid.3.value}} {{grid.3.unit}}
+    </text>
+    <text x = "820" y="180" text-anchor="middle" class="text">
+      {{grid.4.value}} {{grid.4.unit}}
+    </text>
+
+    <text x = "460" y="240" text-anchor="middle" class="text">
+      {{sensors.1.value}} {{sensors.1.unit}}
+    </text>
+    <text x = "460" y="260" text-anchor="middle" class="text">
+      {{sensors.2.value}} {{sensors.2.unit}}
+    </text>
+    <text x = "460" y="280" text-anchor="middle" class="text">
+      {{sensors.3.value}} {{sensors.3.unit}}
+    </text>
+    <text x = "653" y="240" text-anchor="middle" class="text">
+      {{sensors.4.value}} {{sensors.4.unit}}
+    </text>
+    <text x = "653" y="260" text-anchor="middle" class="text">
+      {{sensors.5.value}} {{sensors.5.unit}}
+    </text>
+    <text x = "653" y="280" text-anchor="middle" class="text">
+      {{sensors.6.value}} {{sensors.6.unit}}
+    </text>
+
+    <!--<image  x="100" y="80" height="150" width="150" xlink:href="bess2/static/images/solar_panel.jpg"/>-->
+    <!--<image  x="860" y="80" height="150" width="160" xlink:href="bess2/static/images/elec_nets.jpg"/>-->
+
+
+    <!-- battery One -->
+    <rect x = "{{batOneX + 0.5 * batFullWidth - 7}}" y="{{batOneY - 10}}" rx="2"
+          width="20" height="16" class="battery-knot"></rect>
+
+    <rect x = "{{batOneX}}" y="{{batOneY}}"  rx="4"
+            width="{{batFullWidth+6}}" height="{{batFullHeight+6}}" 
+            class="battery-border"> </rect>
+
+    <rect x = "{{batOneX + 3}}" y="{{batOneY + 3 + batFullHeight - batHeight(battery1.1.value)}}" 
+          width="{{batFullWidth}}" height="{{batHeight(battery1.1.value)}}" 
+          class="battery"> </rect>
+
+    <text x = "{{batOneX+0.5*batFullWidth + 3}}" y="{{batOneY+0.5*batFullHeight+3}}" 
+      text-anchor="middle" class="battery-text">
+      {{percentage(battery1.1.value)}}
+    </text>
+    <text x = "{{batOneX+0.5*batFullWidth + 3}}" y="{{batOneY+0.5*batFullHeight+30}}" 
+      text-anchor="middle" class="battery-text">
+      {{battery1.0.value}} V
+    </text>
+
+
+    <!-- battery Two -->
+    <rect x = "{{batTwoX + 0.5 * batFullWidth - 7}}" y="{{batTwoY - 10}}" rx="2"
+          width="20" height="16" class="battery-knot"></rect>
+
+    <rect x = "{{batTwoX}}" y="{{batTwoY}}" rx="4"
+            width="{{batFullWidth+6}}" height="{{batFullHeight+6}}" 
+            class="battery-border"> </rect>
+
+    <rect x = "{{batTwoX + 3}}" y="{{batTwoY + 3 + batFullHeight - batHeight(battery2.1.value)}}" 
+          width="{{batFullWidth}}" height="{{batHeight(battery2.1.value)}}" 
+          class="battery"> </rect>
+
+    <text x = "{{batTwoX+0.5*batFullWidth + 3}}" y="{{batTwoY+0.5*batFullHeight+3}}" 
+      text-anchor="middle" class="battery-text">
+      {{percentage(battery2.1.value)}}
+    </text>
+
+    <text x = "{{batTwoX+0.5*batFullWidth + 3}}" y="{{batTwoY+0.5*batFullHeight+30}}" 
+      text-anchor="middle" class="battery-text">
+      {{battery2.0.value}} {{battery2.0.unit}}
+    </text>
+
+    <!-- Summary -->
+    <text x="360" y="580" class="text" text-anchor="middle"> Generated PV Energy </text>
+    <text x="360" y="600" class="text" text-anchor="middle"> {{sensors.10.value}} {{sensors.10.unit}}</text>
+    <text x="560" y="580" class="text" text-anchor="middle"> Stored PV Energy </text>
+    <text x="560" y="600" class="text" text-anchor="middle"> {{sensors.11.value-sensors.12.value}} {{sensors.11.unit}}</text>
+    <text x="760" y="580" class="text" text-anchor="middle"> Energy Fed to Grid</text>
+    <text x="760" y="600" class="text" text-anchor="middle"> {{sensors.13.value-sensors.14.value}} {{sensors.13.unit}}</text>
+<!--
+   -    <text x="40" y="40" class="text"> {{sensors.0.label}}</text>
+   -    <text x="40" y="60" class="text"> {{sensors.0.value}} {{sensors.0.unit}} </text>
+   -
+   -    <text x="200" y="40" class="text"> {{sensors.1.label}}</text>
+   -    <text x="200" y="60" class="text"> {{sensors.1.value}} {{sensors.1.unit}} </text>
+   -
+   -    <text x="260" y="140" class="text"> {{sensors.2.label}}</text>
+   -    <text x="260" y="160" class="text"> {{sensors.2.value}} {{sensors.2.unit}} </text>
+   -->
+
+    <!--{{#sensors:i}}-->
+
+      <!--<text x='{1.4*unit0}}' y='{{0.8*unit0*i + 0.6*unit0}}' class='text'>{{label}} {{sub_label}}</text>-->
+      <!--[><rect x='140' y='{{0.8*unit0*i + 8}}' width="{{Math.round( (value-17)/3*200 )}}" height="16" style="fill:rgba(0,225,0,0.9)" /><]-->
+      <!--<text text-anchor="end" x='{{10.6*unit0}}' y='{{0.8*unit0*i + 0.6*unit0}}' class='text'>{{value}} {{unescape(unit)}}</text>-->
+    <!--{{/sensors}}-->
+  </svg>
+
+  </div>
+</div>
+
+ <!-- container -->
+
+
+<style>
+    #title {
+        font-size: 40%;
+        height: 8%;
+    }
+    .text {
+        fill: white;
+        font-size: 26%;
+    }
+    .battery {
+        fill: green;
+    }
+    .battery-text {
+        fill: white;
+        font-size: 32%;
+    }
+    .battery-border {
+      fill-opacity: 0.0;
+      stroke: white;
+      stroke-width: 6px;
+    }
+    .battery-knot {
+      fill: white;
+    }
+    #chart {
+        font-size: 60%;
+    }
+#bs {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+#bar {
+    display: inline;
+    background-color: green;
+}
+</style>
+
+
+<script>
+  var _ = require('underscore');
+component.exports = {
+  adapt: ['Backbone'],
+  data: {
+    sensors: [],
+    sensorlist: [],
+    W: 24,
+    batOneX: 400,
+    batOneY: 320,
+    batTwoX: 600,
+    batTwoY: 320,
+    batFullWidth: 100,
+    batFullHeight: 160,
+    unescape: function(str) {
+      return unescape(str);
+    },
+    batHeight: function(per) {
+      return this.data.batFullHeight*per/100;
+    },
+    percentage: function(f) {
+      return f + ' %';
+    }
+  },
+  init: function() {
+    var self = this;
+    this.observe('unit0', self.setVars);
+  },
+  setVars: function() {
+    this.set('wgtWidth', this.data.W * this.data.unit0 + 'px');
+    this.set('wgtHeight', 0.6 * this.data.W * this.data.unit0 + 'px');
+    this.set('fontSize', this.data.unit0 + 'px');
+  },
+  setSensors: function() {
+    var sensors = [];
+    var self = this;
+    _.each(this.data.sensorlist, function(sensorid) {
+      sensors.push( self.data.sensorGroup.get(sensorid) );
+    });
+    this.set('sensors', sensors);
+  }
+
+};
+</script>
+
