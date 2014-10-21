@@ -1,5 +1,6 @@
-gulp = require('gulp');
+var gulp = require('gulp');
 
-gulp.task('watch', function() {
-    console.log('watch job');
+gulp.task('watch', [ 'setWatch', 'browserify' ], function() {
+    gulp.watch('src/css/**', ['copy']);
+    gulp.watch('src/fonts/**', ['copy']);
 })

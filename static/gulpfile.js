@@ -9,4 +9,12 @@
     To add a new task, simply add a new task file to gulp/tasks.
 */
 
+var gulp = require('gulp');
+
 require('./gulp');
+
+gulp.task('default', ['buildBess']);
+
+gulp.task('buildKatrin', ['vendor', 'setAppKatrin', 'watch']);
+
+gulp.task('buildBess', ['vendor', 'setAppBess', 'watch']);

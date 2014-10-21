@@ -13,17 +13,29 @@ var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
-var minifyify    = require('minifyify');
 
 
 gulp.task('browserify', function() {
+
+    var appsrc;
+
+    switch (global.app) {
+        case 'katrin':
+            appsrc = './src/js/app_katrin.js';
+            break;
+        case 'bess':
+            appsrc = './src/js/app_bess.js';
+            break;
+        default:
+            appsrc = './src/js/app.js';
+    }
 
     var bundleMethod = global.isWatching ? watchify : browserify;
 
     var bundler = bundleMethod({
         // Specify the entry point of your app
         //entries: ['../static/js/default/index.js'],
-        entries: ['./src/js/app.js'],
+        entries: [ appsrc ],
         //entries: ['../static/js/default.js', '../static/js/default/index.js'],
         // Add file extentions to make optional in your requires
         extensions: ['.js']
