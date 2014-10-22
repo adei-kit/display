@@ -5,8 +5,9 @@ import datetime
 import calendar
 import urllib2 as urllib
 from helper import csvparser, xmlparser, print_exc
+import time
 
-DEBUG = 0
+DEBUG = 1
 
 ADEI_Time_Format = '%d-%b-%y %H:%M:%S.%f'
 
@@ -21,8 +22,11 @@ def adei_timestamp(adeitimestr):
     return timestamp
 
 def parse_csv(url):
+    startTime = time.time()
     fp = urllib.urlopen(url)
     resp = csvparser(fp)
+    elapsedTime = time.time() - startTime
+    print elapsedTime
     #stamps = map(adei_timestamp, resp[0][1:])
     #data = [dict(zip(('name', 'values'), [s[0], s[1:]])) for s in resp[1:]]
     return resp
@@ -81,6 +85,7 @@ class ADEIReader:
             url += '&window=-1'
         else:
             url += '&window=%d' % window
+        url += '&resample=%d' % resample
         # fetch data
         data = parse_csv(url)
         # build sensor list
@@ -92,23 +97,23 @@ class ADEIReader:
         svalue[0]  = map(adei_timestamp, svalue[0])
         svalue = transpose_list(svalue)
         # resample data
-        if resample != 0:
-            res_value = [svalue[0]]
-            t0 = svalue[0][0]
-            for v in svalue:
-                if v[0] - t0  >= resample:
-                    res_value.append(v)
-                    t0 = v[0]
-            svalue = res_value
+        #if resample != 0:
+            #res_value = [svalue[0]]
+            #t0 = svalue[0][0]
+            #for v in svalue:
+                #if v[0] - t0  >= resample:
+                    #res_value.append(v)
+                    #t0 = v[0]
+            #svalue = res_value
         # debug info
         if DEBUG == 1:
             #import pprint
             print '--------------------------------------------------'
             print url
-            print 'data:', len(data), data[0]
-            print 'sensor names', sname, len(sname)
-            print 'sensor values', svalue, len(svalue[0])
-            print 'sensor', len(sensor)
+            #print 'data:', len(data), data[0]
+            #print 'sensor names', sname, len(sname)
+            #print 'sensor values', svalue, len(svalue[0])
+            #print 'sensor', len(sensor)
             print
         return svalue
     

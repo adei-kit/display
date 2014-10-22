@@ -5,11 +5,12 @@ from pprint import pprint
 from gluon.custom_import import track_changes; track_changes(True)
 from adeireader.adeireader import ADEIReader
 import collections
+import time
 
 f_server = open(os.path.join(request.folder, 'static/src/config/server.json'))
 config_server = json.load(f_server)
 f_server.close()
-pprint(config_server)
+#pprint(config_server)
 
 def index():
     return locals()
@@ -47,8 +48,8 @@ def api():
                 resample = int( kargs['r'] )
             else:
                 resample = 10
-            if ( window / resample > 30 ):
-                resample = window/30 + 1
+            #if ( window / resample > 30 ):
+            #    resample = window/30 + 1
             try:
                 f_sensor = open(os.path.join(request.folder, 'static/src/config/' + args[0] + '.json'))
                 sensors = json.load(f_sensor)
@@ -72,10 +73,13 @@ def api():
                     sensor_masks.append(s['sensor'])
                     sensor_ids.append(i)
             # query
+            startTime = time.time()
             ar = ADEIReader( config_server[server]['host'],
                              config_server[server]['server'],
                              config_server[server]['database'])
             query_res = ar.query(group=group, sensor=sensor_masks, window=window, resample=resample)
+            elapsedTime = time.time() - startTime
+            print elapsedTime
             query_res = numpy.array( query_res )
             timestamp = query_res[ :,0 ].tolist()
             for i in sensor_ids:
