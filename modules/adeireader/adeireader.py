@@ -85,7 +85,7 @@ class ADEIReader:
             url += '&window=-1'
         else:
             url += '&window=%d' % window
-        url += '&resample=%d' % resample
+            url += '&resample=%d' % resample
         # fetch data
         data = parse_csv(url)
         # build sensor list
