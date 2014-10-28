@@ -17,6 +17,9 @@ var TrendView = Ractive.extend(require("./view/trend.html"));
 var url_api = "http://localhost:8000/katrin/default/api/sensor.json";
 var cols = 4;
 
+// parameters
+screenWidth = screen.availWidth;
+screenHeight = screen.availHeight;
 
 // sensor configuration
 var sensorConfig = require('../config/sensor.json');    
@@ -34,10 +37,10 @@ sensorGroup.fetch({data: {w: 600, r: 60}});
 $('#content').canvas({cols: cols});
 var col_width = $('#content').data('colwidth');
 var unit0 = Math.floor(col_width/12);
+var content_height = 0.95 * $('#content').data('contentHeight');
 
 
 // sensor views
-
 // cols 0
 var col = "#canvas-col-0";
 var alarmview   = new AlarmView({el: col, append: true});
@@ -45,22 +48,25 @@ var sensorview1 = new SensorView({ el: col, append: true});
 
 // cols 1
 var col = "#canvas-col-1";
+var sensorview2 = new SensorView({ el: col, append: true});
 
 // cols 2
 var col = "#canvas-col-2";
-var trendview1 = new TrendView({ el: col, append: true});
-var trendview2 = new TrendView({ el: col, append: true});
+trendview1 = new TrendView({ el: col, append: true});
+trendview2 = new TrendView({ el: col, append: true});
 
-trendview1.set('W', 36);
-trendview2.set('W', 36);
+trendview1.set('W', 24);
+trendview1.set('H', content_height/unit0/2);
+trendview2.set('W', 24);
+trendview2.set('H', content_height/unit0/2);
 
 
 views = {
 //    sensorview0: [0,  1,  2,  3,  4,  5],
     sensorview1: [8, 10,  8, 10,  8, 10,  9, 14],
-//    sensorview2: [8, 10,  8, 10,  8, 10,  9, 14],
+    sensorview2: [8, 10,  8, 10,  8, 10,  9, 14],
 //    sensorview3: [8, 10,  9, 14],
-//    sensorview4: [8, 10,  8, 10,  8, 10,  9, 14],
+//    sensorview4: [8, 10,  8, 10],
 //    sensorview5: [8, 10,  8, 10,  8, 10,  9, 14],
     trendview1:  [0, 3, 4],
     trendview2:  [5, 6, 7, 8],

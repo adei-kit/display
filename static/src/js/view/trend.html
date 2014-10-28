@@ -1,6 +1,6 @@
 <div class="widget-group">
   <div class='widget-container' 
-    style=" width: {{W*unit0}}px; height: {{Math.round(0.58*W*unit0)}}px; 
+    style=" width: {{W*unit0}}px; height: {{Math.round(H*unit0)}}px; 
     font-size: {{Math.round(0.5*unit0)}}px"> 
 
     <!-- menu bar -->
@@ -89,10 +89,16 @@
 
     component.exports = {
       adapt: ['Backbone'],
-      data: { W: 24 },
+      data: { W: 24, H: 14 },
       beforeInit: function () {
       },
       init: function() {
+        this.observe('H', function() {
+          if (this.data.H < 8) {
+            this.set('H', 8);
+            console.log(this.data.H);
+          }
+        })
       },
       initchart: function () {
          
