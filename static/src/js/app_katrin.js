@@ -16,6 +16,7 @@ var TrendView = Ractive.extend(require("./view/trend.html"));
 // settings
 var url_api = "http://localhost:8000/katrin/default/api/sensor.json";
 var cols = 4;
+var col_min_width = 320;
 
 // parameters
 screenWidth = screen.availWidth;
@@ -34,42 +35,45 @@ sensorGroup.fetch({data: {w: 600, r: 60}});
 
 
 // initialize canvas
-$('#content').canvas({cols: cols});
-var col_width = $('#content').data('colwidth');
-var unit0 = Math.floor(col_width/12);
-var content_height = 0.95 * $('#content').data('contentHeight');
+var col_width, content_height, unit0;
+$('#content').canvas({layout: "1"});
+col_width = $('#content').data('colWidth');
+col_width = (col_width < col_min_width) ? col_min_width : col_width
+
+unit0 = 0.0833 * col_width;
+content_height = 400;
+
+
+//var content_height = 0.95 * $('#content').data('contentHeight');
+//var unit0 = Math.floor(col_width/12);
+//console.log(col_width, unit0);
 
 
 // sensor views
 // cols 0
-var col = "#canvas-col-0";
-var alarmview   = new AlarmView({el: col, append: true});
-var sensorview1 = new SensorView({ el: col, append: true});
+var col = "#canvas-col-1";
+alarmview   = new AlarmView({el: col, append: true, data: {unit0: unit0}});
+sensorview1 = new SensorView({el: col, append: true, data: {unit0: unit0}});
 
 // cols 1
-var col = "#canvas-col-1";
-var sensorview2 = new SensorView({ el: col, append: true});
+var col = "#canvas-col-2";
+var sensorview2 = new SensorView({ el: col, append: true, data: {unit0: unit0}});
 
 // cols 2
-var col = "#canvas-col-2";
-trendview1 = new TrendView({ el: col, append: true});
-trendview2 = new TrendView({ el: col, append: true});
-
-trendview1.set('W', 24);
-trendview1.set('H', content_height/unit0/2);
-trendview2.set('W', 24);
-trendview2.set('H', content_height/unit0/2);
+var col = "#canvas-col-3";
+trendview1 = new TrendView({ el: col, append: true, data: {unit0: unit0, width: 2*col_width}});
+//var trendview2 = new TrendView({ el: col, append: true});
 
 
 views = {
 //    sensorview0: [0,  1,  2,  3,  4,  5],
-    sensorview1: [8, 10,  8, 10,  8, 10,  9, 14],
-    sensorview2: [8, 10,  8, 10,  8, 10,  9, 14],
+     sensorview1: [8, 10,  8, 10,  8, 10,  9, 14],
+     sensorview2: [8, 10,  8, 10,  8, 10,  9, 14],
 //    sensorview3: [8, 10,  9, 14],
 //    sensorview4: [8, 10,  8, 10],
 //    sensorview5: [8, 10,  8, 10,  8, 10,  9, 14],
     trendview1:  [0, 3, 4],
-    trendview2:  [5, 6, 7, 8],
+//    trendview2:  [5, 6, 7, 8],
     alarmview: [0, 2]
 };
 
@@ -82,5 +86,7 @@ _.each(views, function(v, k) {
     k.setSensors();
 });
 
+trendview1.set('height', content_height/2);
+//trendview2.set('height', content_height/2);
 trendview1.initchart();
-trendview2.initchart();
+//trendview2.initchart();

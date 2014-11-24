@@ -14,6 +14,12 @@
     <script src="{{=URL(request.application,'static', 'vendor/jquery-ui.min.js')}}"></script>
     <script src="{{=URL(request.application,'static', 'vendor/highcharts.js')}}"></script>
     <script src="{{=URL(request.application,'static', 'vendor/highcharts-dark-unica.js')}}"></script>
+    <script src="{{=URL(request.application,'static', 'vendor/bootstrap.min.js')}}"></script>
+
+    {{
+      response.files.insert(0,URL('static','vendor/bootstrap.min.css'))
+    }}
+    
 
     {{ response.include_meta()
        response.include_files() }}

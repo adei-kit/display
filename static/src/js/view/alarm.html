@@ -1,10 +1,8 @@
 <!-- container -->
-<div class="widget-group" style="font-size: {{fontSize}}">
+<div class="widget-group" style="font-size: {{unit0}}px; width: 100%">
   <div id='title'>Alarm </div>
-  <div class='widget-container' style='width:{{wgtWidth}}'>
-
+  <div class='widget-container' style="width: 100%">
     <div id="date" align="center"></div>
-
   </div>
 </div>
 
@@ -15,7 +13,6 @@
     #title {
         font-size: 50%;
         font-weight: bold;
-        height: 8%;
         background: #3F3F3F;
         padding-left: 6px;
         padding-top: 4px;
@@ -31,14 +28,14 @@
     #chart {
         font-size: 60%;
     }
-#bs {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-#bar {
-    display: inline;
-    background-color: green;
-}
+    #bs {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    #bar {
+        display: inline;
+        background-color: green;
+    }
 </style>
 
 
@@ -56,7 +53,7 @@ component.exports = {
   },
   init: function() {
     var self = this;
-    this.observe('unit0', self.setVars);
+    //this.observe('unit0', self.setVars);
     setInterval( function() {
         var date = new Date();
         var hr = date.getUTCHours();
@@ -74,11 +71,13 @@ component.exports = {
               "<span style='font-size: 40%'>Last update: 4 minutes ago </span>");
         }, 1000 );
   },
+  /*
   setVars: function() {
     this.set('wgtWidth', this.data.W * this.data.unit0 + 'px');
     this.set('wgtHeight', 0.5 * this.data.W * this.data.unit0 + 'px');
     this.set('fontSize', this.data.unit0 + 'px');
   },
+  */
   adapt: ['Backbone'],
   setSensors: function(sensorGroup) {
     var sensors = [];

@@ -13,7 +13,8 @@ var gulp = require('gulp');
 
 require('./gulp');
 
-gulp.task('default', ['buildBess']);
+gulp.task('default', ['buildKatrin']);
+//gulp.task('default', ['buildBess']);
 
 gulp.task('buildKatrin', ['vendor', 'setAppKatrin', 'watch']);
 

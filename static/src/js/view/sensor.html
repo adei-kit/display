@@ -1,9 +1,9 @@
-<div class="widget-group" style="font-size: {{unit0}}px">
+<div class="widget-group" style="font-size: {{unit0}}px; width: 100%">
 <div id='title'>Alarm </div>
-<ul style='width:{{W*unit0}}px;'>
+<ul>
   {{#sensors:i}}
   <li class='widget-container' id='widget_{{i}}' data-sid={{sensorlist[i]}}
-      style='width: {{6*unit0}}px; height: {{3*unit0}}px'
+      style='width: 50%; height: {{3.2*unit0}}px'
       draggable="true">
     <div id='data'>
         <span id='value'>{{ value }}</span>
@@ -16,7 +16,6 @@
   </li>
   {{/sensors}}
 </ul>
-<div style='height: 20px'></div>
 </div>
 
 <style>
@@ -71,7 +70,6 @@ component.exports = {
     slist = this.findAll("li", {live: true});
   },
   init: function() {
-    console.log(slist);
     var self = this;
     this.observe('sensors.*.label', function(val, oldval, keypath) {
         //console.log(keypath + ":" + oldval + "-->" + val);
@@ -79,6 +77,8 @@ component.exports = {
       }, {
         defer: true
     });
+    console.log('hahah');
+    console.log($(".widget-group").width());
   },
   adapt: ['Backbone'],
   draghandler: function () {

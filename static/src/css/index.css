@@ -29,7 +29,7 @@ body {
     //background-color: #bfddbf;
     background-color: #1f1f1f;
     height: 100%;
-    min-width: 800px;
+    //min-width: 800px;
     min-height: 400px;
 }
 
@@ -72,7 +72,7 @@ body {
 .widget-group {
     overflow: hidden;
     margin: 6px 0;
-    display: inline-block;
+    //display: inline-block;
     vertical-align: top;
     font-family: Carlito;
     color: white;
@@ -90,6 +90,48 @@ body {
     float: left;
     margin: 0 10px;
 }
+
+
+@media (min-width: 1001px) {
+    .medium-col {
+        width: 24%;
+    }
+    .large-col {
+        width: 48%;
+   }
+}
+
+
+@media (max-width: 1000px) {
+    .medium-col {
+        width: 40%;
+    }
+    .large-col {
+        width: 80%;
+   }
+}
+
+@media (max-width: 800px) {
+    .medium-col {
+        width: 320px;
+    }
+    .large-col {
+        width: 640px;
+   }
+}
+
+/*
+ *
+ *@media screen and (min-width: 980) {
+ *    .med-widget {
+ *        width: 240px;
+ *    }
+ *    .large-widget {
+ *        width: %;
+ *    } 
+ *}
+ */
+
 
 /*
  *.widget-group #title {
